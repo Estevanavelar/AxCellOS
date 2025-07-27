@@ -1,0 +1,2 @@
+<?php if (!defined("BASEPATH")) { exit("No direct script access allowed"); } class Dashboard extends MY_Controller { public function __construct() { parent::__construct(); $this->load->model("dashboard_model"); $this->data["menuDashboard"] = "Dashboard"; } public function index() { if (!$this->permission->checkPermission($this->session->userdata("permissao"), "vDashboard")) { $this->session->set_flashdata("error", "Você não tem permissão para visualizar o dashboard."); redirect(base_url()); } $this->data["view"] = "dashboard/dashboard"; return $this->layout(); } }
+
